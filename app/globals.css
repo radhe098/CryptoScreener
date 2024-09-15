@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* 
+
+ */
+
+
+ .glitch {
+  position: relative;
+  font-size: 4rem;
+  font-weight: bold;
+  
+  text-shadow: 2px 2px 0 #ff0000, -2px -2px 0 #0000ff;
+  animation: glitch-animation 2s infinite;
+}
+ 
+
+.glitch::after {
+  left: -20px;
+  text-shadow: -2px 0 #0000ff;
+  clip: rect(0, 0, 0, 900px);
+  animation: glitch-anim-after 1.5s infinite ease-in-out alternate;
+}
+
+@keyframes glitch-animation {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-20px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -20px);
+  }
+  60% {
+    transform: translate(20px, 2px);
+  }
+  80% {
+    transform: translate(2px, -20px);
+  }
+  100% {
+    transform: translate(2);
+  }
+}
+
+@keyframes glitch-anim-before {
+  0% {
+    clip: rect(42px, 9999px, 44px, 0);
+    transform: skew(0.5deg);
+  }
+  50% {
+    clip: rect(12px, 9999px, 66px, 0);
+    transform: skew(0.5deg);
+  }
+  100% {
+    clip: rect(85px, 9999px, 12px, 0);
+    transform: skew(0.5deg);
+  }
+}
+
+@keyframes glitch-anim-after {
+  0% {
+    clip: rect(12px, 9999px, 50px, 0);
+    transform: skew(0.5deg);
+  }
+  50% {
+    clip: rect(65px, 9999px, 80px, 0);
+    transform: skew(0.5deg);
+  }
+  100% {
+    clip: rect(30px, 9999px, 10px, 0);
+    transform: skew(0.5deg);
+  }
+}
