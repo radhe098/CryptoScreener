@@ -8,7 +8,7 @@ export default function Home() {
   const [coins, setCoins] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const apiKey = process.env.NEXT_PUBLIC_API_KEY;
   // Function to generate random colors
   const getRandomColor = () => {
     const letters = '0123456789ABCDEF';
@@ -25,9 +25,9 @@ export default function Home() {
       const url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd';
       const options = {
         method: 'GET',
-        headers: { 
+        headers: {
           accept: 'application/json',
-          'x-cg-demo-api-key': 'CG-xTkZFFicJzZZHswn3yjhs1cH'
+          'x-cg-demo-api-key': apiKey
         }
       };
 
@@ -38,7 +38,7 @@ export default function Home() {
         // Ensure data is an array
         if (Array.isArray(data)) {
           setCoins(data);
-        } else {
+        } else {                                                              
           throw new Error('API did not return an array');
         }
       } catch (err) {
@@ -49,9 +49,9 @@ export default function Home() {
       }
     };
 
-    const price = setInterval(() => {
+    // const price = setInterval(() => {
       fetchCoins();
-    }, 60000);
+    // }, 60000);
 
     // Change background color every 1 second
     const interval = setInterval(() => {
