@@ -27,7 +27,7 @@ export default function Home() {
         method: 'GET',
         headers: {
           accept: 'application/json',
-          'x-cg-demo-api-key': apiKey
+          'x-cg-demo-api-key': 'CG-xTkZFFicJzZZHswn3yjhs1cH'
         }
       };
 
