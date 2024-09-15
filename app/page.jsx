@@ -49,9 +49,9 @@ export default function Home() {
       }
     };
 
-    // const price = setInterval(() => {
+    const price = setInterval(() => {
       fetchCoins();
-    // }, 60000);
+    }, 1000);
 
     // Change background color every 1 second
     const interval = setInterval(() => {
