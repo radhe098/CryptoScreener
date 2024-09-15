@@ -35,6 +35,9 @@ export default function Home() {
         const res = await fetch(url, options);
         const data = await res.json();
         
+        if (res.status === 429) {
+          throw new Error('API rate limit exceeded. Please try again later.');
+        }
         // Ensure data is an array
         if (Array.isArray(data)) {
           setCoins(data);
